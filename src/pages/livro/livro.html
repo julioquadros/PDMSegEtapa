@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Detalhes do Livro</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-card>
+        <ion-row>
+            <ion-col>
+                <!--<img src={{thumbnail}}>-->
+            </ion-col>
+        </ion-row>
+        <ion-card-content>
+            <ion-card-title text-center>
+                {{ titulo }} {{ subtitulo }}
+            </ion-card-title>
+            <ion-list>
+                <ion-item>
+                    <h2><b>Dados do Livro:</b></h2>
+                </ion-item>
+                <ion-item>
+                    <p> <b>Autores:</b> {{ autores }}</p>
+                </ion-item>
+                <ion-item>
+                    <p> <b>Páginas:</b> {{ numpaginas }}</p>
+                </ion-item>
+                <ion-item>
+                    <p> <b>Editora:</b> {{ editora }}</p>
+                </ion-item>
+                <ion-item>
+                    <p> <b>Data de Publicação:</b> {{ datapublicacao }}</p>
+                </ion-item>
+                <ion-item *ngIf="resumo">
+                    <p *ngIf="resumo"> <b *ngIf="resumo">Resumo:</b> {{ resumo }}</p>
+                </ion-item>
+                <ion-item *ngIf="avaliacao">
+                    <p> <b>Avaliação:</b> {{ avaliacao }}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Adicionar Livro</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form #f="ngForm" (ngSubmit)="adicionarLivro(f)">
+        <ion-list>
+            <ion-item>
+                <ion-label fixed>ISBN</ion-label>
+                <ion-input type="text" name="txtISBN" placeholder="ISBN" ngModel required></ion-input>
+            </ion-item>
+        </ion-list>
+        <button ion-button type="submit" block [disabled]="!f.valid">Adicionar</button>
+    </form>
+    <button ion-button color="green" (click)="lerCodigoDeBarras()" block><ion-icon name="barcode">Ler Cod de Barras</ion-icon> </button>
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of listaLivros; let i = index" (click)="livroSelecionado(i, item.isbn)">
+            <ion-item>
+                <h2>Código ISBN: {{ item.isbn }} </h2>
+            </ion-item>
+            <ion-item-options side="left">
+                <button ion-button color="danger" (click)="excluirLivro(i)"><ion-icon name="trash"></ion-icon> Excluir</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <!--<button ion-button type="submit" block (click)="salvarBibliografia()">Salvar Bibliografia</button>-->
+</ion-content>
